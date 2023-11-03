@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import styled from "styled-components";
+import Container from "./components/Container";
+import NavBar from "./components/NavBar";
+import BurgerContextProvider from "./context";
+
+const StyledApp = styled.div`
+  background-color: black;
+  height: auto;
+  margin-top: -33px;
+`;
+
+const StyledHeader = styled.h2`
+  color: white;
+  padding: 30px;
+  font-size: 40px;
+  &:hover {
+    cursor: pointer;
+    color: bisque;
+  }
+`;
+
+const StyledDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BurgerContextProvider>
+      <StyledApp>
+        <StyledDiv>
+          <StyledHeader>Bun&Burger{"🍔"}</StyledHeader>
+          <NavBar />
+        </StyledDiv>
+        <Container />
+      </StyledApp>
+    </BurgerContextProvider>
   );
 }
 
